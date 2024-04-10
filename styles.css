@@ -30,14 +30,7 @@ h2 {
     /* Calculator title color */
 }
 
-.calculator p.output {
-    position: absolute;
-    top: 65%;
-    margin-left: 150px;
-    display: none;
-    color: #45a049;
-    /* Output color */
-}
+
 
 input {
     margin-bottom: 10px;
