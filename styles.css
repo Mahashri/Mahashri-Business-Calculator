@@ -81,6 +81,7 @@ p {
     max-width: 400px;
     /* Limit the maximum width for larger screens */
     margin-top: 20px;
+    margin-bottom: 10px;
     text-align: right;
     /* Align the text to the right */
 }
