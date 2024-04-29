@@ -54,7 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const to = parseFloat(percentageToInput.value);
         if (!isNaN(from) && !isNaN(to)) {
             const difference = ((to - from) / Math.abs(from)) * 100;
-            percentageDifferenceOutput.textContent = "Percentage Difference: " + difference + "%";
+            const roundedDifference = difference.toFixed(2);
+            percentageDifferenceOutput.textContent = "Percentage Difference: " + roundedDifference + "%";
             percentageDifferenceOutput.style.display = 'block'; // Display the output
             hideOtherOutputs(percentageDifferenceOutput);
         } else {
