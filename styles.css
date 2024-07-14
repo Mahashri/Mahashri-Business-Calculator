@@ -31,17 +31,10 @@ h2 {
 }
 
 .calculator p.output {
-    position: absolute;
-    top: 150px;
-    left: 45%;
-    transform: translate(-50%, -50%);
+   
+    
     display: none;
-    color: hsl(123, 40%, 45%);
-    /* Output color */
-    text-align: left;
-    width: 80%;
-    max-width: 300px;
-    /* Limiting maximum width for larger screens */
+   
 }
 
 @media only screen and (min-width: 600px) {
