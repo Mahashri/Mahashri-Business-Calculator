@@ -93,14 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function hideOtherOutputs(currentOutput) {
-        const outputs = document.querySelectorAll('.output');
-        outputs.forEach(output => {
-            if (output !== currentOutput) {
-                output.style.display = 'none';
-            }
-        });
-    }
+    
 
     // Display the respective final amount section after clicking calculate buttons
     calculateNormalButton.addEventListener('click', function() {
