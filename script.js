@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const change = amount * (percentage / 100);
             normalOutput.textContent = "Final Value: " + change.toFixed(2);
             normalOutput.style.display = 'block';
-            hideOtherOutputs(normalOutput);
+            
         } else {
             alert('Please enter valid numbers for both the original amount and the percentage');
         }
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const total = amount + gstAmount;
             gstOutput.textContent = "Final Amount: " + total.toFixed(2);
             gstOutput.style.display = 'block';
-            hideOtherOutputs(gstOutput);
+           
         } else {
             alert('Please enter valid numbers');
         }
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const roundedDifference = difference.toFixed(2);
             percentageDifferenceOutput.textContent = "Percentage Difference: " + roundedDifference + "%";
             percentageDifferenceOutput.style.display = 'block';
-            hideOtherOutputs(percentageDifferenceOutput);
+            
         } else {
             alert('Please enter valid numbers');
         }
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const discountedPrice = originalPrice - (originalPrice * (discountPercentage / 100));
             discountOutput.textContent = "Final Amount: " + discountedPrice.toFixed(2);
             discountOutput.style.display = 'block';
-            hideOtherOutputs(discountOutput);
+            
         } else {
             alert('Please enter valid numbers');
         }
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const profitPercentage = (profitAmount / investedAmount) * 100;
             profitOutput.textContent = "Profit Percentage: " + profitPercentage.toFixed(2) + "%";
             profitOutput.style.display = 'block';
-            hideOtherOutputs(profitOutput);
+           
         } else {
             alert('Please enter valid numbers');
         }
