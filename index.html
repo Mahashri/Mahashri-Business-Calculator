@@ -39,7 +39,7 @@
 
       <div class="percentage-input-row">
         <input type="number" id="percentageFrom" placeholder="From">
-        <button class="swap-btn" onclick="swapValues()">⇆ Swap</button>
+        <button class="swap-btn" id="swapBtn">⇆ Swap</button>
       </div>
 
       <div class="percentage-input-row">
@@ -58,6 +58,16 @@
       <input type="number" id="discountPercentage" placeholder="Discount Percentage">
       <button id="calculateDiscount">Calculate</button>
       <p id="discountOutput" class="calc-output"></p>
+    </div>
+    <br>
+
+    <!-- Profit Percentage Calculator -->
+    <div class="calculator">
+      <h3>Profit Percentage Calculator</h3>
+      <input type="number" id="investedAmount" placeholder="Invested Amount">
+      <input type="number" id="profitAmount" placeholder="Profit Amount">
+      <button id="calculateProfit">Calculate</button>
+      <p id="profitOutput" class="calc-output"></p>
     </div>
 
   </div>
