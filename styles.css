@@ -1,145 +1,128 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-    text-align: center;
-    color: #333;
+  text-align: center;
+  color: #333;
 }
 
 .calculator {
-    margin-bottom: 20px;
-    position: relative;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .calculator h3 {
-    color: #eb1241;
+  color: #eb1241;
 }
 
-.calculator p.output {
-    display: none;
-    color: hsl(123, 40%, 45%);
-    text-align: left;
-    margin-top: 10px;
+/* Output text */
+.calc-output {
+  display: block;
+  font-weight: bold;
+  color: #000;
+  font-size: 1.1em;
+  margin-top: 10px;
 }
 
-/* Input fields */
+/* Input styling */
 input {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 2px solid #333;
-    border-radius: 15px;
-    height: 18px;
-    width: auto;
-    margin-right: 15px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 15px;
+  height: 18px;
+  width: auto;
+  margin-right: 15px;
 }
 
-/* Buttons */
+/* Buttons (default green) */
 .calculator button {
-    cursor: pointer;
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    margin-top: 10px;
-    transition: background 0.2s ease;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  margin-top: 10px;
 }
 
 .calculator button:hover {
-    background-color: #45a049;
+  background-color: #45a049;
 }
 
-/* Swap button */
+/* Percentage calculator special layout */
+.percentage-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.percentage-input-row input {
+  flex: 1;
+}
+
+.percentage-input-row button {
+  height: 40px;
+  white-space: nowrap;
+}
+
+/* Blue Swap button */
 button.swap-btn {
-    background-color: #007bff !important; /* Blue */
-    color: white !important;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 15px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s ease, transform 0.1s ease;
-    flex-shrink: 0;
+  background-color: #007bff !important;
+  color: white !important;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease, transform 0.1s ease;
+  flex-shrink: 0;
 }
 
 button.swap-btn:hover {
-    background-color: #0056b3 !important; /* Darker Blue */
-    transform: scale(1.05);
+  background-color: #0056b3 !important;
+  transform: scale(1.05);
 }
 
-
-/* Input row for swap */
-.input-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-/* Footer */
 .footer {
-    background-color: white;
-    border-radius: 30px;
-    padding: 12px;
-    display: inline-block;
-    float: right;
-    width: 100%;
-    max-width: 400px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-align: right;
+  background-color: white;
+  border-radius: 30px;
+  padding: 12px;
+  display: inline-block;
+  float: right;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: right;
 }
 
 .footer a {
-    text-decoration: none;
-    color: #45a049;
+  text-decoration: none;
+  color: #45a049;
 }
 
 .footer a:hover {
-    color: #e91f6d;
+  color: #e91f6d;
 }
 
-/* Responsive for mobile */
-@media only screen and (max-width: 600px) {
-    .percentage-calculator {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .percentage-calculator .input-row {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .percentage-calculator input {
-        flex: 1;
-    }
-
-    .percentage-calculator .swap-btn {
-        margin-left: 10px;
-    }
-
-    .percentage-calculator #calculatePercentageDifference {
-        align-self: center;
-        margin-top: 10px;
-    }
-
-    .footer {
-        width: 100%;
-    }
+/* Larger screen adjustments */
+@media only screen and (min-width: 600px) {
+  .footer {
+    width: 53%;
+  }
 }
