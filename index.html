@@ -12,50 +12,58 @@
     <div class="App">
         <h2>Mahashri Business Calculator</h2>
         <br>
+
+        <!-- Normal Calculator -->
         <div class="calculator">
             <h3>Normal Calculator</h3>
             <input type="number" id="normalAmount" placeholder="Enter value">
             <input type="number" id="normalPercentage" placeholder="Enter percentage">
             <button id="calculateNormal">Calculate</button>
-            <p id="normalOutput" class="output">Final Value: </p>
+            <p id="normalOutput" class="output" style="display: none;">Final Value: </p>
         </div>
         <br>
+
+        <!-- GST Calculator -->
         <div class="calculator">
             <h3>GST Calculator</h3>
             <input type="number" id="gstAmount" placeholder="Enter amount">
             <input type="number" id="gstPercentage" placeholder="Enter GST percentage">
             <button id="calculateGST">Calculate</button>
-            <p id="gstOutput" class="output">Final Amount: </p>
+            <p id="gstOutput" class="output" style="display: none;">Final Amount: </p>
         </div>
         <br>
-        <div class="calculator">
+
+        <!-- Percentage Calculator -->
+        <div class="calculator percentage-calculator">
             <h3>Percentage Calculator</h3>
-            <input type="number" id="percentageFrom" placeholder="From">
+            <div class="input-row">
+                <input type="number" id="percentageFrom" placeholder="From">
+                <button id="swapValues" class="swap-btn">⇆ Swap</button>
+            </div>
             <input type="number" id="percentageTo" placeholder="To">
             <button id="calculatePercentageDifference">Calculate</button>
-            <p id="percentageDifference" class="output">Percentage Difference: </p>
+            <p id="percentageDifference" style="display: none;">Percentage Difference: </p>
         </div>
         <br>
+
+        <!-- Discount Price Calculator -->
         <div class="calculator">
             <h3>Discount Price Calculator</h3>
             <input type="number" id="originalPrice" placeholder="Original Price">
             <input type="number" id="discountPercentage" placeholder="Discount Percentage">
             <button id="calculateDiscount">Calculate</button>
-            <p id="discountOutput" class="output">Final Amount: </p>
+            <p id="discountOutput" class="output" style="display: none;">Final Amount: </p>
         </div>
-        <br>
-        <div class="calculator">
-            <h3>Profit Percentage Calculator</h3>
-            <input type="number" id="investedAmount" placeholder="Invested Amount">
-            <input type="number" id="profitAmount" placeholder="Profit Amount">
-            <button id="calculateProfitPercentage">Calculate</button>
-            <p id="profitOutput" class="output">Profit Percentage: </p>
-        </div>
+
     </div>
+
+    <!-- Footer -->
     <div class="footer">
-        <p style="margin: 0;">Website Designed by: <a href="https://www.linkedin.com/in/mahashrid/" target="_blank">Mahashri D</a></p>
+        <p style="margin: 0;">Website Designed by: 
+            <a href="https://www.linkedin.com/in/mahashrid/" target="_blank">Mahashri D</a>
+        </p>
     </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>
