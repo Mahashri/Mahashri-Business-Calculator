@@ -1,12 +1,12 @@
-// Normal Calculator
+// Normal Calculator (fixed: only calculate % of amount)
 document.getElementById("calculateNormal").addEventListener("click", function () {
   const amount = parseFloat(document.getElementById("normalAmount").value);
   const percentage = parseFloat(document.getElementById("normalPercentage").value);
   const output = document.getElementById("normalOutput");
 
   if (!isNaN(amount) && !isNaN(percentage)) {
-    const result = amount + (amount * percentage) / 100;
-    output.textContent = `Total Value: ${result.toFixed(2)}`;
+    const result = (amount * percentage) / 100;
+    output.textContent = `Final Value: ${result.toFixed(2)}`;
   } else {
     output.textContent = "Please enter valid numbers.";
   }
@@ -54,6 +54,7 @@ function swapValues() {
   calculatePercentageDifference();
 }
 
+document.getElementById("swapBtn").addEventListener("click", swapValues);
 document.getElementById("calculatePercentageDifference").addEventListener("click", calculatePercentageDifference);
 
 // Discount Calculator
@@ -66,6 +67,20 @@ document.getElementById("calculateDiscount").addEventListener("click", function 
     const discountAmount = (originalPrice * discountPercentage) / 100;
     const finalPrice = originalPrice - discountAmount;
     output.textContent = `Final Amount: ${finalPrice.toFixed(2)}`;
+  } else {
+    output.textContent = "Please enter valid numbers.";
+  }
+});
+
+// Profit Percentage Calculator
+document.getElementById("calculateProfit").addEventListener("click", function () {
+  const invested = parseFloat(document.getElementById("investedAmount").value);
+  const profit = parseFloat(document.getElementById("profitAmount").value);
+  const output = document.getElementById("profitOutput");
+
+  if (!isNaN(invested) && !isNaN(profit) && invested !== 0) {
+    const profitPercentage = (profit / invested) * 100;
+    output.textContent = `Profit Percentage: ${profitPercentage.toFixed(2)}%`;
   } else {
     output.textContent = "Please enter valid numbers.";
   }
