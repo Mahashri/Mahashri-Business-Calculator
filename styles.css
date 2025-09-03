@@ -63,9 +63,9 @@ input {
 }
 
 /* Swap button */
-.calculator .swap-btn {
-    background-color: #007bff !important;
-    color: white;
+button.swap-btn {
+    background-color: #007bff !important; /* Blue */
+    color: white !important;
     border: none;
     border-radius: 8px;
     padding: 8px 15px;
@@ -75,10 +75,11 @@ input {
     flex-shrink: 0;
 }
 
-.calculator .swap-btn:hover {
-    background-color: #0056b3 !important;
+button.swap-btn:hover {
+    background-color: #0056b3 !important; /* Darker Blue */
     transform: scale(1.05);
 }
+
 
 /* Input row for swap */
 .input-row {
