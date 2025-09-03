@@ -1,99 +1,72 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const normalAmountInput = document.getElementById('normalAmount');
-    const normalPercentageInput = document.getElementById('normalPercentage');
-    const gstAmountInput = document.getElementById('gstAmount');
-    const gstPercentageInput = document.getElementById('gstPercentage');
-    const percentageFromInput = document.getElementById('percentageFrom');
-    const percentageToInput = document.getElementById('percentageTo');
-    const originalPriceInput = document.getElementById('originalPrice');
-    const discountPercentageInput = document.getElementById('discountPercentage');
+// Normal Calculator
+document.getElementById("calculateNormal").addEventListener("click", function () {
+  const amount = parseFloat(document.getElementById("normalAmount").value);
+  const percentage = parseFloat(document.getElementById("normalPercentage").value);
+  const output = document.getElementById("normalOutput");
 
-    const calculateNormalButton = document.getElementById('calculateNormal');
-    const calculateGSTButton = document.getElementById('calculateGST');
-    const calculatePercentageDifferenceButton = document.getElementById('calculatePercentageDifference');
-    const calculateDiscountButton = document.getElementById('calculateDiscount');
-    const swapButton = document.getElementById('swapValues');
+  if (!isNaN(amount) && !isNaN(percentage)) {
+    const result = amount + (amount * percentage) / 100;
+    output.textContent = `Total Value: ${result.toFixed(2)}`;
+  } else {
+    output.textContent = "Please enter valid numbers.";
+  }
+});
 
-    const normalOutput = document.getElementById('normalOutput');
-    const gstOutput = document.getElementById('gstOutput');
-    const percentageDifferenceOutput = document.getElementById('percentageDifference');
-    const discountOutput = document.getElementById('discountOutput');
+// GST Calculator
+document.getElementById("calculateGST").addEventListener("click", function () {
+  const amount = parseFloat(document.getElementById("gstAmount").value);
+  const gstPercentage = parseFloat(document.getElementById("gstPercentage").value);
+  const output = document.getElementById("gstOutput");
 
-    calculateNormalButton.addEventListener('click', calculateNormalPercentage);
-    calculateGSTButton.addEventListener('click', calculateGST);
-    calculatePercentageDifferenceButton.addEventListener('click', calculatePercentageDifference);
-    calculateDiscountButton.addEventListener('click', calculateDiscountPrice);
-    swapButton.addEventListener('click', swapValues);
+  if (!isNaN(amount) && !isNaN(gstPercentage)) {
+    const gstAmount = (amount * gstPercentage) / 100;
+    const finalAmount = amount + gstAmount;
+    output.textContent = `Final Amount: ${finalAmount.toFixed(2)}`;
+  } else {
+    output.textContent = "Please enter valid numbers.";
+  }
+});
 
-    function calculateNormalPercentage() {
-        const amount = parseFloat(normalAmountInput.value);
-        const percentage = parseFloat(normalPercentageInput.value);
-        if (!isNaN(amount) && !isNaN(percentage)) {
-            const finalAmount = amount + (amount * (percentage / 100));
-            normalOutput.textContent = "Final Value: " + finalAmount.toFixed(2);
-            normalOutput.style.display = 'block';
-            hideOtherOutputs(normalOutput);
-        } else {
-            alert('Please enter valid numbers for both the original amount and the percentage');
-        }
-    }
+// Percentage Calculator
+const percentageFromInput = document.getElementById("percentageFrom");
+const percentageToInput = document.getElementById("percentageTo");
+const percentageResult = document.getElementById("percentageResult");
 
-    function calculateGST() {
-        const amount = parseFloat(gstAmountInput.value);
-        const gstPercentage = parseFloat(gstPercentageInput.value);
-        if (!isNaN(amount) && !isNaN(gstPercentage)) {
-            const gstAmount = (amount * gstPercentage) / 100;
-            const total = amount + gstAmount;
-            gstOutput.textContent = "Final Amount: " + total.toFixed(2);
-            gstOutput.style.display = 'block';
-            hideOtherOutputs(gstOutput);
-        } else {
-            alert('Please enter valid numbers');
-        }
-    }
+function calculatePercentageDifference() {
+  const from = parseFloat(percentageFromInput.value);
+  const to = parseFloat(percentageToInput.value);
 
-    function calculatePercentageDifference() {
-        const from = parseFloat(percentageFromInput.value);
-        const to = parseFloat(percentageToInput.value);
-        if (!isNaN(from) && !isNaN(to) && from !== 0) {
-            const difference = ((to - from) / Math.abs(from)) * 100;
-            percentageDifferenceOutput.textContent = "Percentage Difference: " + difference.toFixed(2) + "%";
-            percentageDifferenceOutput.style.display = 'block';
-            hideOtherOutputs(percentageDifferenceOutput);
-        } else {
-            alert('Please enter valid numbers (and make sure "From" is not zero)');
-        }
-    }
+  if (!isNaN(from) && !isNaN(to) && from !== 0) {
+    const difference = ((to - from) / from) * 100;
+    percentageResult.textContent = `Percentage Difference: ${difference.toFixed(2)}%`;
+  } else {
+    percentageResult.textContent = "Please enter valid numbers.";
+  }
+}
 
-    function calculateDiscountPrice() {
-        const originalPrice = parseFloat(originalPriceInput.value);
-        const discountPercentage = parseFloat(discountPercentageInput.value);
-        if (!isNaN(originalPrice) && !isNaN(discountPercentage)) {
-            const discountedPrice = originalPrice - (originalPrice * (discountPercentage / 100));
-            discountOutput.textContent = "Final Amount: " + discountedPrice.toFixed(2);
-            discountOutput.style.display = 'block';
-            hideOtherOutputs(discountOutput);
-        } else {
-            alert('Please enter valid numbers');
-        }
-    }
+function swapValues() {
+  let fromValue = percentageFromInput.value;
+  let toValue = percentageToInput.value;
+  percentageFromInput.value = toValue;
+  percentageToInput.value = fromValue;
 
-    function swapValues() {
-        let fromValue = percentageFromInput.value;
-        let toValue = percentageToInput.value;
-        percentageFromInput.value = toValue;
-        percentageToInput.value = fromValue;
+  // Auto calculate after swap
+  calculatePercentageDifference();
+}
 
-        // Automatically calculate after swapping
-        calculatePercentageDifference();
-    }
+document.getElementById("calculatePercentageDifference").addEventListener("click", calculatePercentageDifference);
 
-    function hideOtherOutputs(currentOutput) {
-        const outputs = document.querySelectorAll('.output');
-        outputs.forEach(output => {
-            if (output !== currentOutput) {
-                output.style.display = 'none';
-            }
-        });
-    }
+// Discount Calculator
+document.getElementById("calculateDiscount").addEventListener("click", function () {
+  const originalPrice = parseFloat(document.getElementById("originalPrice").value);
+  const discountPercentage = parseFloat(document.getElementById("discountPercentage").value);
+  const output = document.getElementById("discountOutput");
+
+  if (!isNaN(originalPrice) && !isNaN(discountPercentage)) {
+    const discountAmount = (originalPrice * discountPercentage) / 100;
+    const finalPrice = originalPrice - discountAmount;
+    output.textContent = `Final Amount: ${finalPrice.toFixed(2)}`;
+  } else {
+    output.textContent = "Please enter valid numbers.";
+  }
 });
