@@ -9,77 +9,204 @@
 </head>
 
 <body>
+
   <div class="App">
+
     <h2>Mahashri Business Calculator</h2>
+
     <br>
 
     <!-- Normal Calculator -->
     <div class="calculator">
+
       <h3>Normal Calculator</h3>
-      <input type="number" id="normalAmount" placeholder="Enter value">
-      <input type="number" id="normalPercentage" placeholder="Enter percentage">
+
+      <input type="text" id="normalAmount" placeholder="Enter value">
+
+      <input
+        type="text"
+        id="normalPercentage"
+        class="percentage-input"
+        placeholder="Enter percentage">
+
       <button id="calculateNormal">Calculate</button>
+
       <p id="normalOutput" class="calc-output"></p>
+
     </div>
+
     <br>
 
     <!-- GST Calculator -->
     <div class="calculator">
+
       <h3>GST Calculator</h3>
-      <input type="number" id="gstAmount" placeholder="Enter amount">
-      <input type="number" id="gstPercentage" placeholder="Enter GST percentage">
+
+      <input type="text" id="gstAmount" placeholder="Enter amount">
+
+      <input
+        type="text"
+        id="gstPercentage"
+        class="percentage-input"
+        placeholder="Enter GST percentage">
+
       <button id="calculateGST">Calculate</button>
+
       <p id="gstOutput" class="calc-output"></p>
+
     </div>
+
     <br>
 
     <!-- Percentage Calculator -->
     <div class="calculator percentage-calculator">
+
       <h3>Percentage Calculator</h3>
 
       <div class="percentage-input-row">
-        <input type="number" id="percentageFrom" placeholder="From">
-        <button class="swap-btn" id="swapBtn">⇆ Swap</button>
+
+        <input
+          type="text"
+          id="percentageFrom"
+          placeholder="From">
+
+        <button class="swap-btn" id="swapBtn">
+          ⇆ Swap
+        </button>
+
       </div>
 
       <div class="percentage-input-row">
-        <input type="number" id="percentageTo" placeholder="To">
-        <button id="calculatePercentageDifference">Calculate</button>
+
+        <input
+          type="text"
+          id="percentageTo"
+          placeholder="To">
+
+        <button id="calculatePercentageDifference">
+          Calculate
+        </button>
+
       </div>
 
       <p id="percentageResult" class="calc-output"></p>
+
     </div>
+
     <br>
 
     <!-- Discount Calculator -->
     <div class="calculator">
+
       <h3>Discount Price Calculator</h3>
-      <input type="number" id="originalPrice" placeholder="Original Price">
-      <input type="number" id="discountPercentage" placeholder="Discount Percentage">
+
+      <input
+        type="text"
+        id="originalPrice"
+        placeholder="Original Price">
+
+      <input
+        type="text"
+        id="discountPercentage"
+        class="percentage-input"
+        placeholder="Discount Percentage">
+
       <button id="calculateDiscount">Calculate</button>
+
       <p id="discountOutput" class="calc-output"></p>
+
     </div>
+
     <br>
 
     <!-- Profit Percentage Calculator -->
     <div class="calculator">
+
       <h3>Profit Percentage Calculator</h3>
-      <input type="number" id="investedAmount" placeholder="Invested Amount">
-      <input type="number" id="profitAmount" placeholder="Profit Amount">
+
+      <input
+        type="text"
+        id="investedAmount"
+        placeholder="Invested Amount">
+
+      <input
+        type="text"
+        id="profitAmount"
+        placeholder="Profit Amount">
+
       <button id="calculateProfit">Calculate</button>
+
       <p id="profitOutput" class="calc-output"></p>
+
     </div>
 
+
+
+
+
+
+
+
+<br>
+
+<!-- Stock Profit Calculator -->
+<div class="calculator">
+
+  <h3>📊 Stock Profit Calculator</h3>
+
+  <input
+    type="text"
+    id="buyPrice"
+    placeholder="Buy Price">
+
+  <input
+    type="text"
+    id="sellPrice"
+    placeholder="Sell Price">
+
+  <input
+    type="text"
+    id="stockQuantity"
+    placeholder="Quantity">
+
+  <button id="calculateStockProfit">
+    Calculate
+  </button>
+
+  <p id="stockProfitOutput" class="calc-output"></p>
+
+</div>
+
+
+
+
   </div>
+  
+  
+  
 
   <!-- Footer -->
   <div class="footer">
-    <p style="margin: 0;">Website Designed by:
-      <a href="https://www.linkedin.com/in/mahashrid/" target="_blank">Mahashri D</a>
+
+    <p style="margin: 0;">
+
+      Website Designed by:
+
+      <a
+        href="https://www.linkedin.com/in/mahashrid/"
+        target="_blank"
+        rel="noopener noreferrer">
+
+        Mahashri D
+
+      </a>
+
     </p>
+
   </div>
 
   <script src="script.js"></script>
+
 </body>
 
 </html>
