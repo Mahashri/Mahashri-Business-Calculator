@@ -120,6 +120,91 @@ button.swap-btn:hover {
   color: #e91f6d;
 }
 
+
+select {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 15px;
+  height: 45px;
+  width: 250px;
+  margin-right: 15px;
+  background-color: white;
+  font-size: 16px;
+}
+
+
+
+
+/* ================================
+   SIP Horizontal Chart
+================================ */
+
+.sip-chart-container {
+
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+
+}
+
+.sip-chart-bar {
+
+  width: 100%;
+  height: 38px;
+  display: flex;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #ddd;
+
+}
+
+.invested-bar {
+  background-color: #90caf9;
+  transition: width 0.5s ease;
+}
+
+.wealth-bar {
+  background-color: #1565c0;
+  transition: width 0.5s ease;
+}
+
+.invested-color {
+  background-color: #90caf9;
+}
+
+.wealth-color {
+  background-color: #1565c0;
+}}
+
+.chart-labels {
+
+  display: flex;
+  gap: 25px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+
+}
+
+.label-item {
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+
+}
+
+.label-color {
+
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+
+}
+
+
+
 /* Larger screen adjustments */
 @media only screen and (min-width: 600px) {
   .footer {
