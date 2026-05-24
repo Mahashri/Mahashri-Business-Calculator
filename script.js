@@ -512,3 +512,241 @@ document.getElementById("calculateStockProfit")
     }
 
   });
+  
+  
+  // ================================
+// SIP Calculator
+// ================================
+
+document.getElementById("calculateSIP")
+  .addEventListener("click", function () {
+
+    const monthlyInvestment =
+      parseFormattedNumber(
+        document.getElementById("sipMonthlyInvestment").value
+      );
+
+    const years =
+      parseFormattedNumber(
+        document.getElementById("sipYears").value
+      );
+
+    const annualReturn =
+      parseFormattedNumber(
+        document.getElementById("sipReturn").value
+      );
+
+    const output =
+      document.getElementById("sipOutput");
+
+    if (
+      !isNaN(monthlyInvestment) &&
+      !isNaN(years) &&
+      !isNaN(annualReturn)
+    ) {
+
+      const monthlyRate =
+        annualReturn / 12 / 100;
+
+      const months =
+        years * 12;
+
+      const finalCorpus =
+        monthlyInvestment *
+        (((Math.pow(1 + monthlyRate, months)) - 1)
+          / monthlyRate) *
+        (1 + monthlyRate);
+
+      const investedAmount =
+        monthlyInvestment * months;
+
+      const wealthGained =
+        finalCorpus - investedAmount;
+
+     // ================================
+// SIP Chart Calculation
+// ================================
+
+const investedPercent =
+  (investedAmount / finalCorpus) * 100;
+
+const wealthPercent =
+  (wealthGained / finalCorpus) * 100;
+
+// Chart width update
+document.getElementById("investedBar")
+  .style.width = investedPercent + "%";
+
+document.getElementById("wealthBar")
+  .style.width = wealthPercent + "%";
+
+// Tooltip values
+document.getElementById("investedBar")
+  .title =
+  `Invested: ${investedPercent.toFixed(2)}%
+Value: ${formatNumber(investedAmount)}`;
+
+document.getElementById("wealthBar")
+  .title =
+  `Wealth Gain: ${wealthPercent.toFixed(2)}%
+Value: ${formatNumber(wealthGained)}`;
+
+
+// Show chart only after calculation
+document.getElementById("sipChartContainer")
+  .style.display = "block";
+
+
+// Output
+output.innerHTML = `
+  Invested Amount:
+  ${formatNumber(investedAmount)}
+  (${numberToWords(investedAmount)})
+  <br><br>
+
+  Wealth Gained:
+  ${formatNumber(wealthGained)}
+  (${numberToWords(wealthGained)})
+  <br><br>
+
+  Final Corpus:
+  ${formatNumber(finalCorpus)}
+  (${numberToWords(finalCorpus)})
+`;
+
+    } else {
+
+      output.textContent =
+        "Please enter valid numbers.";
+
+    }
+
+  });
+
+// ================================
+// Inflation Toggle
+// ================================
+
+document.getElementById("adjustInflation")
+  .addEventListener("change", function () {
+
+    const inflationContainer =
+      document.getElementById("inflationContainer");
+
+    if (this.value === "yes") {
+
+      inflationContainer.style.display = "block";
+
+    } else {
+
+      inflationContainer.style.display = "none";
+
+    }
+
+  });
+
+// ================================
+// Wealth Calculator
+// ================================
+
+document.getElementById("calculateWealth")
+  .addEventListener("click", function () {
+
+    const frequency =
+      document.getElementById("investmentFrequency").value;
+
+    let targetWealth =
+      parseFormattedNumber(
+        document.getElementById("targetWealth").value
+      );
+
+    const annualReturn =
+      parseFormattedNumber(
+        document.getElementById("wealthReturn").value
+      );
+
+    const years =
+      parseFormattedNumber(
+        document.getElementById("wealthYears").value
+      );
+
+    const inflationChoice =
+      document.getElementById("adjustInflation").value;
+
+    const inflationRate =
+      parseFormattedNumber(
+        document.getElementById("inflationRate").value || "0"
+      );
+
+    const output =
+      document.getElementById("wealthOutput");
+
+    if (
+      !isNaN(targetWealth) &&
+      !isNaN(annualReturn) &&
+      !isNaN(years)
+    ) {
+
+      // Inflation Adjustment
+      if (inflationChoice === "yes") {
+
+        targetWealth =
+          targetWealth *
+          Math.pow(
+            1 + (inflationRate / 100),
+            years
+          );
+
+      }
+
+      let requiredInvestment;
+
+      if (frequency === "monthly") {
+
+        const monthlyRate =
+          annualReturn / 12 / 100;
+
+        const months =
+          years * 12;
+
+        requiredInvestment =
+          targetWealth /
+          (
+            (((Math.pow(1 + monthlyRate, months)) - 1)
+              / monthlyRate)
+            * (1 + monthlyRate)
+          );
+
+      } else {
+
+        const yearlyRate =
+          annualReturn / 100;
+
+        requiredInvestment =
+          targetWealth /
+          (
+            ((Math.pow(1 + yearlyRate, years)) - 1)
+            / yearlyRate
+          );
+
+      }
+
+      output.innerHTML = `
+        Inflation Adjusted Wealth:
+        ${formatNumber(targetWealth)}
+        (${numberToWords(targetWealth)})
+        <br><br>
+
+        Required ${frequency === "monthly" ? "Monthly" : "Yearly"} Investment:
+        ${formatNumber(requiredInvestment)}
+        (${numberToWords(requiredInvestment)})
+      `;
+
+    } else {
+
+      output.textContent =
+        "Please enter valid numbers.";
+
+    }
+
+  });
