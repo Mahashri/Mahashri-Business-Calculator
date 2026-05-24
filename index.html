@@ -141,12 +141,6 @@
     </div>
 
 
-
-
-
-
-
-
 <br>
 
 <!-- Stock Profit Calculator -->
@@ -176,6 +170,149 @@
   <p id="stockProfitOutput" class="calc-output"></p>
 
 </div>
+
+
+
+
+<br>
+
+<!-- SIP Calculator -->
+<div class="calculator">
+
+  <h3>💰 SIP Calculator</h3>
+
+  <input
+    type="text"
+    id="sipMonthlyInvestment"
+    placeholder="Monthly Investment">
+
+  <input
+    type="text"
+    id="sipYears"
+    placeholder="Years">
+
+  <input
+    type="text"
+    id="sipReturn"
+    class="percentage-input"
+    placeholder="Expected Return %">
+
+  <button id="calculateSIP">
+    Calculate
+  </button>
+
+  <p id="sipOutput" class="calc-output"></p>
+
+</div>
+
+
+
+<!-- SIP Chart -->
+<div
+  class="sip-chart-container"
+  id="sipChartContainer"
+  style="display:none;">
+
+  <div class="sip-chart-bar">
+
+    <div
+      id="investedBar"
+      class="invested-bar"
+      title="">
+    </div>
+
+    <div
+      id="wealthBar"
+      class="wealth-bar"
+      title="">
+    </div>
+
+  </div>
+
+  <div class="chart-labels">
+
+    <div class="label-item">
+      <span class="label-color invested-color"></span>
+      Invested Amount
+    </div>
+
+    <div class="label-item">
+      <span class="label-color wealth-color"></span>
+      Wealth Gained
+    </div>
+
+  </div>
+
+</div>
+
+<br>
+
+<!-- Wealth Calculator -->
+<div class="calculator">
+
+  <h3>📈 Wealth Calculator</h3>
+
+  <select id="investmentFrequency">
+
+    <option value="monthly">
+      Monthly
+    </option>
+
+    <option value="yearly">
+      Yearly
+    </option>
+
+  </select>
+
+  <input
+    type="text"
+    id="targetWealth"
+    placeholder="Targeted Wealth">
+
+  <input
+    type="text"
+    id="wealthReturn"
+    class="percentage-input"
+    placeholder="Expected Return %">
+
+  <input
+    type="text"
+    id="wealthYears"
+    placeholder="Tenure (Years)">
+
+  <select id="adjustInflation">
+
+    <option value="no">
+      No
+    </option>
+
+    <option value="yes">
+      Yes
+    </option>
+
+  </select>
+
+  <div id="inflationContainer" style="display:none;">
+
+    <input
+      type="text"
+      id="inflationRate"
+      class="percentage-input"
+      placeholder="Inflation Percentage">
+
+  </div>
+
+  <button id="calculateWealth">
+    Calculate Wealth
+  </button>
+
+  <p id="wealthOutput" class="calc-output"></p>
+
+</div>
+
+
+
+
 
 
 
