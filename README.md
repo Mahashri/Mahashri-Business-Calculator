@@ -37,3 +37,10 @@ The outputs depend on the formulas and assumptions entered by the user. SIP and 
 
 ## Disclaimer
 This tool is for educational calculations only. It does not provide tax, accounting or investment advice.
+
+
+---
+
+## Live Demo
+
+[Open the deployed application](https://mahashri.github.io/Mahashri-Business-Calculator/)
